@@ -16,3 +16,6 @@ Use this as a starting point to complete the WDD 231 personal activity. We will 
 ## Other commands
 
 - `npm run build` to build final files when you are ready to turn in.
+
+## Link to production site
+https://app.netlify.com/projects/melodic-blini-4a5164/deploys/6aab56bc84e8c93be637ea15
