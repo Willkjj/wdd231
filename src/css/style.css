@@ -98,9 +98,6 @@ img {
 p, a {
   font-family: var(--bs-body-font-family);
 }
-p {
-  color: white;
-}
 
 a {
   text-decoration: none;
@@ -152,10 +149,12 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 1em;
+    color: white;
     
     .hero-banner-title {
       font-size: 30px;
       color: white;
+      padding-left: .3em;
     }
   }
 
@@ -199,8 +198,8 @@ a:hover {
   }
 
   svg {
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
     color: white;
     background-color: black;
   }
@@ -250,8 +249,8 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: .7em;
-    padding:.5em 0;
+    font-size: 1em;
+    padding:1em 0;
   }
   svg {
     height: 25px;
@@ -277,4 +276,67 @@ nav {
 svg {
   background-color: var(--bs-black);
   fill: white;
+}
+
+.intro {
+  padding: 5%;
+
+  h1 {
+    font-size: 2em;
+    font-family: var(--bs-font-sans-serif);
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  img {
+    height: 200px;
+    width: 100%;
+  }
+
+  p, a{
+    color: var(--bs-black)
+  }
+}
+
+footer{
+  background-image: url(https://byui-cse.github.io/wdd231-course/images/topo_pattern.png);
+  
+  section {
+    padding: 5%;
+
+    h3{
+      text-transform: uppercase;
+    }
+
+    h4{
+      padding: 0;
+      margin: 1em 0 0;
+    }
+
+    p{
+      margin: 0;
+      padding: 0;
+    }
+
+  }
+}
+
+@media screen and (min-width: 630px) {
+  .intro{
+    margin: 0;
+    padding: 0 5%;
+  }
+ .info{
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1em;
+  padding: 2% 5%;
+    .mediaCard{
+      max-width: 400px;
+    }
+ }
 }

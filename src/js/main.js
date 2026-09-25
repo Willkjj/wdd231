@@ -1,21 +1,26 @@
-import { getParkData } from "./parkService.mjs";
+import { getParkData , getParkInfoLinks} from "./parkService.mjs";
+import { mediaCardTemplate } from "./templates.mjs";
+import { setHeaderFooter } from "./setHeaderFooter.mjs";
 
 const parkData = getParkData();
+const parkInfoLinks = getParkInfoLinks();
 
-const disclaimer = document.querySelector(".disclaimer > a")
-disclaimer.href = parkData.url;
-disclaimer.innerHTML = parkData.fullName;
-document.querySelector("title").innerHTML = parkData.fullName;
-
-
-function parkInfoTemplate(info){
-    return `<a href="/" class="hero-banner-title">${info.name}</a>
-    <p class="hero-banner-subtitle">
-    <span>${info.designation}<span>
-    <span>${info.states}<span>
-    </p>`;
+// This will be the park full name, and the description from our data. You can do this in much the same way we inserted data in the header.
+function setParkIntro(data){
+    const introSection = document.querySelector("section.intro")
+    introSection.innerHTML = `<h1 class="introSectionTitle">${data.fullName}</h1>
+    <p class="introSectionDescription">${data.description}</p>`
 }
-parkInfoTemplate(parkData)
 
-const heroImg = document.querySelector(".hero-banner > img")
-heroImg.url = parkData.images[1].url
+
+function setParkInfo(data){
+    const infoSection = document.querySelector("section.info")
+    const cards = data.map(mediaCardTemplate)
+    infoSection.insertAdjacentHTML("afterbegin", cards.join(""))
+    
+}
+
+
+setParkIntro(parkData)
+setParkInfo(parkInfoLinks)
+setHeaderFooter(parkData)
