@@ -20,7 +20,6 @@ function setParkInfo(data){
     
 }
 
-
 setParkIntro(parkData)
 setParkInfo(parkInfoLinks)
 setHeaderFooter(parkData)
