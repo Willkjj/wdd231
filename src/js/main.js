@@ -2,8 +2,6 @@ import { getParkData , getParkInfoLinks} from "./parkService.mjs";
 import { mediaCardTemplate } from "./templates.mjs";
 import { setHeaderFooter } from "./setHeaderFooter.mjs";
 
-const parkData = getParkData();
-const parkInfoLinks = getParkInfoLinks();
 
 // This will be the park full name, and the description from our data. You can do this in much the same way we inserted data in the header.
 function setParkIntro(data){
@@ -20,6 +18,11 @@ function setParkInfo(data){
     
 }
 
-setParkIntro(parkData)
-setParkInfo(parkInfoLinks)
-setHeaderFooter(parkData)
+async function init(){
+    const parkData = await getParkData()
+    const parkInfoLinks = await getParkInfoLinks(parkData.images)
+    setParkIntro(parkData)
+    setParkInfo(parkInfoLinks)
+    setHeaderFooter(parkData)
+}
+init();

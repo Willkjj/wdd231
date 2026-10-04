@@ -1,0 +1,39 @@
+.intro {
+  padding: 5%;
+
+  h1 {
+    font-size: 2em;
+    font-family: var(--bs-font-sans-serif);
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  img {
+    height: 200px;
+    width: 100%;
+  }
+
+  p, a{
+    color: var(--bs-black)
+  }
+}
+
+@media screen and (min-width: 630px) {
+  .intro{
+    margin: 0;
+    padding: 0 5%;
+  }
+ .info{
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1em;
+  padding: 2% 5%;
+    .mediaCard{
+      max-width: 400px;
+    }
+ }
+}

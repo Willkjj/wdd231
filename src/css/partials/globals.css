@@ -1,0 +1,43 @@
+
+/* Global styles */
+
+* {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+
+p, a {
+  font-family: var(--bs-body-font-family);
+}
+
+a {
+  text-decoration: none;
+}
+
+
+body {
+  font-family: var(--bs-body-font-family);
+  font-size: 18px;
+  margin: 0;
+}
+
+/* a:link,
+a:visited {
+  color: var(--bs-black);
+} */
+
+a:hover {
+  color: var(--bs-link-hover);
+}
+
+.disclaimer {
+  width: 100%;
+  font-size: 30px;
+  color: black;
+  a {
+    color: var(--bs-link-color);
+    text-decoration: underline;
+  }
+}
