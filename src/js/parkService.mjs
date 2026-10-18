@@ -16,8 +16,8 @@ async function getJson(url){
   return data
 }
 
-export async function getParkData() {
-  const parkData = await getJson("parks?parkCode=yell")
+export async function getParkData(parkCode) {
+  const parkData = await getJson(`parks?parkCode=${parkCode}`)
   return parkData.data[0]
 }
 
@@ -27,6 +27,27 @@ export function getInfoLinks(data) {
     return item
   })
   return withUpdatedImages
+}
+
+export async function renderClimbingList() {
+  const list = document.querySelector("#outputList")
+  const data = await getJson("activities/parks?q=climbing")
+  const parks = data["data"][0]["parks"]
+  const listHTML = parks.map(listTemplate).join("")
+  list.innerHTML = listHTML
+} 
+function listTemplate(item) {
+  return `<li><a href="${item.irl}">${item.fullName}</a> ${item.states}`
+}
+
+export async function getParkAlerts(parkCode){
+  const alerts = await getJson(`alerts?parkCode=${parkCode}`)
+  return alerts.data
+}
+
+export async function getVisitorCenterData(parkCode){
+  const visitorData = await getJson(`visitorcenters?parkCode=${parkCode}`)
+  return visitorData.data
 }
 
 
@@ -235,5 +256,6 @@ const parkInfoLinks = [
 export function getParkInfoLinks(){
   return parkInfoLinks;
 }
+
 
 

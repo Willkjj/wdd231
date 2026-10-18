@@ -1,0 +1,54 @@
+main {
+    padding: 0 .5em;
+}
+
+.alerts > ul {
+    list-style: none;
+}
+
+.alert {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    border-bottom: 1px solid var(--bs-grey-3);
+    padding: .5em 0 1em 0;
+}
+.alert h3, p{
+    margin: 0;
+}
+
+.alert svg {
+    height: 30px;
+    width: 30px;
+    flex:  0 0 auto;
+    margin: .25em;
+    background-color: white;
+}
+
+.visitor details  {
+    border: 2px solid var(--bs-grey-3);
+    border-radius: 10px;
+    padding: 1em;
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        
+        border-bottom: 1px solid var(--bs-grey-3);
+        margin: 0;
+
+    }
+
+    p {
+        padding: .5em 0;
+    }
+}
+
+.activities details {
+    border: 2px solid var(--bs-grey-3);
+    border-radius: 10px;
+    padding: 1em;
+}

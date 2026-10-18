@@ -1,3 +1,5 @@
+import spritePath from '../images/sprite.symbol.svg';
+
 export function parkInfoTemplate(info){
     return `<a href="/" class="hero-banner-title">${info.name}</a>
     <p class="hero-banner-subtitle">
@@ -36,4 +38,40 @@ function getMailingAddress(addresses) {
 function getVoicePhone(phoneNumbers){
     const voice = phoneNumbers.find((number) => number.type === "Voice");
     return voice.phoneNumber;
+}
+
+export function alertsTemplate(alert){
+    let type = ""
+    switch (alert.category){
+        case "Park Closure":
+            type = "closure"
+            break
+        default:
+            type = alert.category.toLowerCase()
+    }
+    return `<li class="alert">
+    <svg class="icon alert-${type}" role="presentation" focusable="false" aria-hidden="true">
+        <use xlink:href="${spritePath}#alert-${type}"></use>
+    </svg>
+    <div>
+    <h3 class="alert-${type}">${alert.title}</h3    >
+    <p>${alert.description}</p>
+    </div>
+    </li>
+    `
+}
+
+export function parkServicesTemplate(parkService){
+    return `<li>
+    <h3>${parkService.name}</h3>
+    <p>${parkService.description}</p>
+    <p>${parkService.directionsInfo}<p>
+    </li>
+    `
+}
+
+export function activitiesTemplate(activity){
+    return `
+    <li>${activity.name}</li>
+    `
 }
