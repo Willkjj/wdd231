@@ -29,5 +29,28 @@ async function init(){
     setParkInfo(parkInfoLinks)
     setHeaderFooter(parkData)
     renderClimbingList()
+    enableNavigation()
 }
+
 init();
+
+function enableNavigation() {
+    const menuButton = document.querySelector("#global-nav-toggle")
+
+    menuButton.addEventListener("click", (e) => {
+        let target = e.target
+        document.querySelector(".global-nav").classList.toggle("show")   
+        
+        if (target != "BUTTON") {
+            target = target.closest("button")
+        }
+        
+        if (document.querySelector(".global-nav").classList.contains("show")) {
+            target.setAttribute("aria-explanded", true)
+        } else {
+            target.setAttribute("aria-expanded", false)
+        }
+
+    })
+
+}
